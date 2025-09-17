@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 printUsageError(){
-cat << EOF >> $SCRATCH/dcgm_hook.log
+cat << EOF > $SCRATCH/dcgm_hook.log
 The correct way to configure the DCGM hook in your toml file is as follows.:
 [annotations]
 com.hooks.dcgm.enabled = "true"
