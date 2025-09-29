@@ -27,10 +27,10 @@ export PATH="${PATH}:/usr/sbin:/sbin"
 
 source "${ENROOT_LIBRARY_PATH}/common.sh"
 
-common::checkcmd grep sed ldd ldconfig
+common::checkcmd ldconfig
 
 if [ "${OCI_ANNOTATION_com__hooks__dcgm__enabled:-}" != "true" ]; then
-    if [ "${OCI_ANNOTATION_com__hooks__com__hooks__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__com__hooks__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__hooks__hooks__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_hooks_dcgm__enabled:-}" == "true" ]; then
+    if [ "${OCI_ANNOTATION_com__hooks__com__hooks__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__com__hooks__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__hooks__hooks__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__hooks__com__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__hooks__com__hooks__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_com__dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_dcgm__enabled:-}" == "true" ] || [ "${OCI_ANNOTATION_hooks_dcgm__enabled:-}" == "true" ]; then
        printUsageError
        common::err "The name of the dcgm hook is not correctly configured in the annotation section. Please check \$SCRATCH/dcgm_hook.log for more information"
     fi
